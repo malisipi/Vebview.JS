@@ -6,9 +6,11 @@
   ░   ░░░░ ░░░░    ░   ░ ░░░░   ░   ░  ░  ░░  ░░░ 
 0.1.0                   Move Beyond the Web Border
 ```
-|                  |                    |
-|------------------|--------------------|
+
+<center><img src="./assets/screenshot_01.png" title="Borderless Vebview.JS example that displays vlang.io with built-in webview API"/></center>
+
 | **Works Everywhere** | **Small App Bundles, Really** |
+|------------------|--------------------|
 | Applications written with Vebview.JS can work any modern PC runs x64 and even move with any storage device without data loss¹. | App bundles size is lower than 1MB, smaller 100+ times than NW.JS or Electron |
 | **Powered by Web Technologies** | **Free & Open Source** |
 | Create applications with HTML, CSS or JS | No cost, Not everything good is paid |
