@@ -1,0 +1,8 @@
+build/*
+dist/*.exe
+dist/vebview
+*.log
+windows_cmd_with_parameter.cmd
+windows_test_on_wine.sh
+dist/*.dll
+windows_static_on_linux.sh

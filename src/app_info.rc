@@ -1,0 +1,25 @@
+MAINICON ICON "assets/icon.ico"
+
+1 VERSIONINFO
+FILEVERSION     1,0,0,0
+PRODUCTVERSION  1,0,0,0
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "080904E4"
+    BEGIN
+      VALUE "CompanyName", "malisipi"
+      VALUE "FileDescription", "Vebview.JS"
+      VALUE "FileVersion", "1.0"
+      VALUE "InternalName", "Vebview.JS"
+      VALUE "LegalCopyright", "© malisipi / Apache License 2.0"
+      VALUE "OriginalFilename", "vebview.exe"
+      VALUE "ProductName", "Vebview.JS"
+      VALUE "ProductVersion", "1.0"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x809, 1252
+  END
+END

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="vebview.css">
+        <script src="vebview.js"></script>
+        <style>
+            body {
+                margin: 0;
+                overflow: hidden;
+            }
+
+            .title-bar {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 30px;
+                background: aqua;
+                display: flex;
+                position: fixed;
+            }
+
+            .title-bar > *:not(script) {
+                height: 30px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+            }
+
+            .title-bar > .title {
+                width: calc(100% - 120px);
+                padding: 0px 15px;
+            }
+
+            .title-bar > .button {
+                width: 30px;
+                justify-content: center;
+            }
+
+            .title-bar > .button:hover {
+                background: #0001;
+            }
+
+            div[app-region='nw-resize']{
+                position: fixed;
+                bottom:0;
+                right:0;
+                width: 25px;
+                height: 25px;
+                z-index: 1;
+            }
+
+            iframe{
+                width: 100%;
+                height: 300px;
+                border: #0007 solid 2px;
+                border-left: none;
+                border-right: none;
+            }
+
+            button{
+                height: 25px;
+            }
+
+            main{
+                margin:4px;
+                overflow: auto;
+                position: fixed;
+                top: 30px;
+                bottom: 0;
+            }
+        </style>
+    </head>
+    <body dir="ltr">
+        <div class="title-bar" app-region="drag" oncontextmenu="return false;">
+            <div class="title" app-region="drag">Title</div>
+            <div class="button" onclick="vebview.window.toggle_always_on_top();">&#128392;</div>
+            <div class="button" onclick="vebview.window.minimize();">&#128469;</div>
+            <div class="button" onclick="vebview.window.toggle_maximize();">&#128470;</div><!--&#128471;-->
+            <div class="button" onclick="vebview.window.close();">&#128473;</div>
+            <script>vebview.assign.title(document.querySelector(".title"));</script>
+        </div>
+        <div app-region="nw-resize" oncontextmenu="return false;"></div>
+        <main>
+            <h1 style="text-align:center;">Vebview.JS</h1>
+
+            <button onclick="vebview.window.set_title(Math.random())">Change Title With Math.Random</button>
+            <button onclick='vebview.dialog.messagebox({title:"Hi", message:"Hello"})'>Messagebox</button>
+            <button onclick='vebview.dialog.inputbox({}).then(e=>vebview.dialog.messagebox({message:e}))'>Inputbox</button>
+            <button onclick='vebview.dialog.passwordbox({}).then(e=>vebview.dialog.messagebox({message:e}))'>Passwordbox</button>
+            <button onclick='vebview.dialog.colorchooser({default_color:"#ff0077"}).then(e=>vebview.dialog.messagebox({message:e}))'>Color Chooser</button>
+            <button onclick='vebview.dialog.openfiledialog({}).then(e=>vebview.dialog.messagebox({message:e}))'>Open File Dialog</button>
+            <button onclick='vebview.dialog.savefiledialog({}).then(e=>vebview.dialog.messagebox({message:e}))'>Save File Dialog</button>
+            <button onclick='vebview.dialog.selectfolderdialog({}).then(e=>vebview.dialog.messagebox({message:e}))'>Select Folder Dialog</button>
+            <button onclick='vebview.dialog.notifypopup({message:"Hi"})'>Notify Popup</button>
+            <button onclick='vebview.dialog.openfiledialog({}).then(e=>vebview.os.read_file(e).then(e=>alert(e)))'>Read File</button>
+            <button onclick='vebview.dialog.savefiledialog({}).then(e=>vebview.os.write_file(e,"Hello World"))'>Write "Hello World" to File</button>
+            <button onclick='vebview.os.open_in_browser("http://example.com")'>Open "example.com" in browser</button>
+            <button onclick='vebview.window.new()'>Open New Window</button>
+            <button onclick='vebview.window.set_icon("res/app");'>Change app icon</button>
+            <button onclick='setTimeout(vebview.window.focus,3000)'>Focus after 3 sec</button>
+            <br>
+            <iframe></iframe>
+            <br>
+            <button onclick="vebview.http.webview.render(document.querySelector('iframe'),prompt('Site:'))">Open site</button>
+        </main>
+    </body>
+</html>
