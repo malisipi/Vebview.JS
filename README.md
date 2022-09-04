@@ -25,7 +25,7 @@ Roadmap & What's implemented?
 
 ## How to compile?
 
-> No require Administrator permisssion or Root permission. *YOU SHOULD **NOT** RUN AS ADMINISTRATOR OR ROOT*
+> No require Administrator permission or Root permission. *YOU SHOULD **NOT** RUN AS ADMINISTRATOR OR ROOT*
 
 ### **Linux**
 ```bash
