@@ -1,5 +1,6 @@
 build/*
 dist/*.exe
+dist/_.*
 dist/vebview
 *.log
 windows_cmd_with_parameter.cmd

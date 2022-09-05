@@ -34,15 +34,18 @@ mut:
 }
 
 struct Config {
+mut:
 	title			string	= "Vebview.JS"
 	debug			bool	//= false
 	port			int		= 7001
 	main_page		string	= "index.html"
 	default_size	Size	= Size{}
+	mount_folder	string	= "res"
 	maximized		bool	//= false
 	decorated		bool	= true
 	resizable		bool	= true
 	localhost		bool	= true
+	cloud_loading	bool	//= false
 	custom_backend	string	//= ""
 }
 

@@ -20,14 +20,6 @@ fn C.webview_bind(w Webview_t, func_name &char, func fn(&char, &char, &WebviewMa
 fn C.webview_return(w Webview_t, seq &char, status int, result &char)
 fn C.webview_get_window(w Webview_t) voidptr
 
-[typedef]
-struct C.GdkRGBA{
-    red       f32
-    green     f32
-    blue      f32
-    alpha     f32
-}
-
 fn create_webview(webview_app_config Config){
 	active_window_count++
 	mut webview_manager:=WebviewManager{
@@ -84,15 +76,13 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("cmVhZF9kaXJlY3Rvcnk="), C.js_read_directory, &webview_manager) //read_directory
 	C.webview_bind(webview_manager.webview, cstr("Y3JlYXRlX2RpcmVjdG9yeQ=="), C.js_create_directory, &webview_manager) //create_directory
 	C.webview_bind(webview_manager.webview, cstr("cmVtb3ZlX2RpcmVjdG9yeQ=="), C.js_remove_directory, &webview_manager) //remove_directory
+	C.webview_bind(webview_manager.webview, cstr("aHR0cF9kb3dubG9hZA=="), C.js_http_download, &webview_manager) //http_download
+	
 	C.webview_set_size(webview_manager.webview, webview_manager.config.default_size.width, webview_manager.config.default_size.height, C.WEBVIEW_HINT_NONE)
 
 	js_window_set_decorated(cstr(""),cstr("["+webview_manager.config.decorated.str()+"]"),webview_manager)
 
-	if webview_manager.config.localhost {
-		C.webview_navigate(webview_manager.webview, cstr("http://localhost:"+webview_manager.config.port.str()+"/"+webview_manager.config.main_page))
-	} else {
-		C.webview_navigate(webview_manager.webview, cstr("file://"+os.resource_abs_path("res/"+webview_manager.config.main_page)))
-	}
+	C.webview_navigate(webview_manager.webview, cstr(webview_manager.config.main_page))
 
 	$if linux {
 		C.g_signal_connect(C.webview_get_window(webview_manager.webview) ,cstr("destroy"), close_webview_event, &webview_manager)
@@ -122,7 +112,7 @@ fn main() {
 	active_window_count=0
 	latest_id=1
 
-	app_config=json.decode(Config, os.read_file("res/app.config")or{"{}"}) or {panic("[ERR ]: app.config -> Unable to parse")}
+	app_config=json.decode(Config, os.read_file("app.config")or{os.read_file("res/app.config")or{"{}"}}) or {panic("[ERR ]: app.config -> Unable to parse")}
 
 	if os.exists(storage_file_location) {
 		user_data_storage=json.decode(map[string]string, os.read_file(storage_file_location)or{"{}"}) or {print("[WARN]: Storage file was corrupted.") map[string]string }
@@ -132,15 +122,19 @@ fn main() {
 
 	if app_config.localhost {
 		mut webview_server := &Server{}
-		webview_server.mount_static_folder_at("res", '/')
+		webview_server.mount_static_folder_at(app_config.mount_folder, '/')
 		go vweb.run(webview_server, app_config.port)
-	} else if app_config.custom_backend!="" {
-		print("Custom Backend not implemented")
-		exit(2)
+		app_config.main_page="http://localhost:"+app_config.port.str()+"/"+app_config.main_page
+	} else if app_config.custom_backend!="" || app_config.cloud_loading {
+		if app_config.custom_backend!="" {
+			print("Custom Backend not implemented")
+			exit(2)
+		}
 	} else {
 		$if windows {
 			C._putenv(cstr("--allow-file-access-from-files"))
 		}
+		app_config.main_page="file://"+os.resource_abs_path(app_config.mount_folder+"/"+app_config.main_page)
 	}
 
 	go create_webview(app_config)

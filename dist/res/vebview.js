@@ -230,6 +230,10 @@ const vebview={
         request:async (site="")=>{
             return await window["aHR0cF9yZXF1ZXN0"](site);
         },
+        download:async (site_file="",download_file="")=>{
+            if(site_file=="" || download_file=="") return false;
+            return await window["aHR0cF9kb3dubG9hZA=="](site_file, download_file);
+        },
         webview:{
             render:async (object="",site="")=>{
                 if(object!="" && site!=""){
@@ -317,5 +321,9 @@ document.onmouseup=()=>{
 }
 
 window["vebview"]=vebview;
+
+if(window["_vebview_loaded"]!=null){
+    _vebview_loaded();
+};
 
 }
