@@ -1,6 +1,6 @@
 if(window["c2VydmVyX3ZlcnNpb24="]==null){
-    throw new Error("This library designed for Vebview.JS");
-}
+    console.warn("This library designed for Vebview.JS");
+} else {
 
 const vebview={
     name:"Vebview.JS",
@@ -314,4 +314,8 @@ document.onmousemove=(e)=>{
 document.onmouseup=()=>{
     document.body.setAttribute("_vebview_app_region_mouse_move","false");
     vebview._._app_region._click=false;
+}
+
+window["vebview"]=vebview;
+
 }

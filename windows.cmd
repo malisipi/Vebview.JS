@@ -1,5 +1,6 @@
 @echo off
 cls
+mkdir build
 x86_64-w64-mingw32-g++ -c libs/webview/webview.cc -std=c++17 -I "libs/webview2/build/native/include" -I "%W10_SDK%/winrt/" -o build/webview.o
 v -gc none src -enable-globals -o build/vebview.c -os windows
 x86_64-w64-mingw32-gcc -c build/vebview.c -std=gnu99 -o build/vebview.o -I "libs/tinyfd" -I "libs/webview" -I "%V_LOC%/thirdparty/vschannel/" -I "%V_LOC%/thirdparty/cJSON/" -lpthread -lssl -lcrypto -ldl -lpthread -municode -ldbghelp -ladvapi32 -lws2_32 -lcrypt32 -lsecur32 -luser32 -lurlmon
