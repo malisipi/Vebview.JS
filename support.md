@@ -75,8 +75,8 @@
 ┃ │ cloud_loading            │✅│✅│⚠️│✔️┃
 ┃ │ assign/unassign          │✔️│✔️│✔️│✅┃
 ┃ ├─ title                   │✔️│✔️│✔️│✅┃
-┃ │ Browser API Polyfills    │✔️│✔️│✔️│❌┃
-┃ ├─ Notification API        │✔️│✔️│✔️│❌┃
+┃ │ Browser API Polyfills    │✔️│✔️│✔️│〽️┃
+┃ ├─ Notification API        │✔️│✔️│✔️│✅┃
 ┃ ├─ Native File System API  │✔️│✔️│✔️│❌┃
 ┃ ├─ title                   │✔️│✔️│✔️│✅┃
 ┃ │ Non-Public¹              │✅│✅│⚠️│✅┃

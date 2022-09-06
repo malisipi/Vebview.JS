@@ -326,4 +326,16 @@ if(window["_vebview_loaded"]!=null){
     _vebview_loaded();
 };
 
+class Notification {
+    constructor(_param1="",_param2={body:""}) {
+        vebview.dialog.notifypopup({title:_param1,message:_param2.body});
+    }
+}
+Notification.permission='granted';
+Notification.requestPermission=async ()=>{
+    return 'granted';
+}
+Notification.maxActions=0;
+window.Notification=Notification;
+
 }
