@@ -92,8 +92,8 @@
             <button onclick='vebview.dialog.savefiledialog({}).then(e=>vebview.dialog.messagebox({message:e}))'>Save File Dialog</button>
             <button onclick='vebview.dialog.selectfolderdialog({}).then(e=>vebview.dialog.messagebox({message:e}))'>Select Folder Dialog</button>
             <button onclick='vebview.dialog.notifypopup({message:"Hi"})'>Notify Popup</button>
-            <button onclick='vebview.dialog.openfiledialog({}).then(e=>vebview.os.read_file(e).then(e=>alert(e)))'>Read File</button>
-            <button onclick='vebview.dialog.savefiledialog({}).then(e=>vebview.os.write_file(e,"Hello World"))'>Write "Hello World" to File</button>
+            <button onclick='vebview.dialog.openfiledialog({}).then(e=>vebview.fs.read_file(e).then(e=>alert(e)))'>Read File</button>
+            <button onclick='vebview.dialog.savefiledialog({}).then(e=>vebview.fs.write_file(e,"Hello World"))'>Write "Hello World" to File</button>
             <button onclick='vebview.os.open_in_browser("http://example.com")'>Open "example.com" in browser</button>
             <button onclick='vebview.window.new()'>Open New Window</button>
             <button onclick='vebview.window.set_icon("res/app");'>Change app icon</button>
