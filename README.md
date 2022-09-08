@@ -42,12 +42,14 @@ $ ./linux.sh
 > ./windows.cmd
 ```
 
+<!-- Cross-Compiling possible but not recommend for now
 ### **Windows On Linux (Cross-Compiling)**
 ```bash
 $ export V_LOC=/path/to/dir/v
 $ export W10_SDK=/path/to/dir/sdk
 $ ./windows_on_linux.sh
 ```
+-->
 
 ## License
 

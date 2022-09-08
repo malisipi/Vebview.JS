@@ -159,10 +159,10 @@ const vebview={
         is_maximized:async ()=>{
             return await window["d2luZG93X2lzX21heGltaXplZA=="]();
         },
-        move:async (x, y)=>{
+        move:async (x=0, y=0)=>{
             await window["d2luZG93X21vdmU="](String(x),String(y));
         },
-        move_by:async (x, y)=>{
+        move_by:async (x=0, y=0)=>{
             await window["d2luZG93X21vdmVfYnk="](String(x),String(y));
         },
         is_fullscreen:async ()=>{

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>window - Vebview.JS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "window";
+        var mkdocs_page_input_path = "js_api/window.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Vebview.JS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../app_config/">App Config</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">JavaScript API</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../dialog/">dialog</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">os</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fs/">fs</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">window</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#set_titletitle">.set_title(title?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#maximize">.maximize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#minimize">.minimize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unmaximize">.unmaximize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unminimize">.unminimize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fullscreen">.fullscreen()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is_maximized-bool">.is_maximized() bool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#movex-y">.move(x?, y?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#move_byx-y">.move_by(x?, y?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is_fullscreen-bool">.is_fullscreen() bool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#new">.new()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set_decorationbool">.set_decoration(bool)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#toggle_maximize">.toggle_maximize()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#toggle_fullscreen">.toggle_fullscreen()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#close">.close()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set_resizablebool">.set_resizable(bool)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set_always_on_topbool">.set_always_on_top(bool)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is_always_on_top-bool">.is_always_on_top() bool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#toggle_always_on_top">.toggle_always_on_top()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set_iconfile-exts">.set_icon(file, exts?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#focus">.focus()</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resizex-y">.resize(x?, y?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resize_byx-y">.resize_by(x?, y?)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#is_decorated-bool">.is_decorated() bool</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get_title-string">.get_title() string</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../storage/">storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../http/">http</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../un_assign/">assign/unassign</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HTML/CSS API</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../html_css_api/app_region/">app-region</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tips</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tips/borderless/">Borderless Window</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Vebview.JS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>JavaScript API &raquo;</li>
+      <li>window</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="vebviewwindow">vebview.window</h1>
+<h2 id="set_titletitle">.set_title(title?)</h2>
+<p>Sets title of window. If title parameter was empty, clears title of window.</p>
+<h2 id="maximize">.maximize()</h2>
+<h2 id="minimize">.minimize()</h2>
+<h2 id="unmaximize">.unmaximize()</h2>
+<h2 id="unminimize">.unminimize()</h2>
+<h2 id="fullscreen">.fullscreen()</h2>
+<h2 id="is_maximized-bool">.is_maximized() bool</h2>
+<h2 id="movex-y">.move(x?, y?)</h2>
+<p>Moves window to x, y.</p>
+<blockquote>
+<p>You should use all parameters.</p>
+</blockquote>
+<h2 id="move_byx-y">.move_by(x?, y?)</h2>
+<p>Moves window to x, y as relative.</p>
+<h2 id="is_fullscreen-bool">.is_fullscreen() bool</h2>
+<h2 id="new">.new()</h2>
+<blockquote>
+<p>Work in Progress (Will be changed behavior in future). You should don't use the function until finish.</p>
+</blockquote>
+<h2 id="set_decorationbool">.set_decoration(bool)</h2>
+<p>Sets decoration of window.</p>
+<h2 id="toggle_maximize">.toggle_maximize()</h2>
+<h2 id="toggle_fullscreen">.toggle_fullscreen()</h2>
+<h2 id="close">.close()</h2>
+<h2 id="set_resizablebool">.set_resizable(bool)</h2>
+<p>Sets resizability of window.</p>
+<blockquote>
+<p>If window doesn't have decoration, if will not work. If you want to have resizable borderless window, look at <a href="../../tips/borderless/">Borderless Window</a></p>
+</blockquote>
+<h2 id="set_always_on_topbool">.set_always_on_top(bool)</h2>
+<h2 id="is_always_on_top-bool">.is_always_on_top() bool</h2>
+<h2 id="toggle_always_on_top">.toggle_always_on_top()</h2>
+<h2 id="set_iconfile-exts">.set_icon(file, exts?)</h2>
+<p>Sets windows icon. Exts parameter is extension of file for operating system (Windows: .ico, Linux: .png).</p>
+<pre><code>- app_icon.png
+- app_icon.ico
+
+.set_icon(&quot;app_icon&quot;)
+</code></pre>
+<blockquote>
+<p>If you want to set icon from website, you should download first. <a href="../http/#download"><code>http.download</code></a></p>
+</blockquote>
+<h2 id="focus">.focus()</h2>
+<h2 id="resizex-y">.resize(x?, y?)</h2>
+<p>Resizes window to x, y.</p>
+<blockquote>
+<p>You should use all parameters.</p>
+</blockquote>
+<h2 id="resize_byx-y">.resize_by(x?, y?)</h2>
+<p>Resizes window to x, y as relative.</p>
+<h2 id="is_decorated-bool">.is_decorated() bool</h2>
+<h2 id="get_title-string">.get_title() string</h2>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../fs/" class="btn btn-neutral float-left" title="fs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../storage/" class="btn btn-neutral float-right" title="storage">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../fs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../storage/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

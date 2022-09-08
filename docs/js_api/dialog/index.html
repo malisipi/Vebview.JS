@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>dialog - Vebview.JS</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "dialog";
+        var mkdocs_page_input_path = "js_api/dialog.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Vebview.JS
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../app_config/">App Config</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">JavaScript API</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">dialog</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#messageboxtitle-message-icon-type-result">.messagebox({title?, message?, icon?, type?}) result</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inputboxtitle-message-default_text-string">.inputbox({title?, message?, default_text?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#passwordboxtitle-message-string">.passwordbox({title?, message?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#colorchoosertitle-default_color-string">.colorchooser({title?, default_color?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#openfiledialogtitle-string">.openfiledialog({title?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#savefiledialogtitle-string">.savefiledialog({title?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#selectfolderdialogtitle-string">.selectfolderdialog({title?}) string</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notifypopuptitle-message-icon">.notifypopup({title?, message?, icon?})</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#icon">.icon</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#type">.type</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#result">.result</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../os/">os</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fs/">fs</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../window/">window</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../storage/">storage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../http/">http</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../un_assign/">assign/unassign</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">HTML/CSS API</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../html_css_api/app_region/">app-region</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tips</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tips/borderless/">Borderless Window</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Vebview.JS</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>JavaScript API &raquo;</li>
+      <li>dialog</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="vebviewdialog">vebview.dialog</h1>
+<h2 id="messageboxtitle-message-icon-type-result">.messagebox({title?, message?, icon?, type?}) result</h2>
+<ul>
+<li>title: Title of messagebox</li>
+<li>message: Message of messagebox</li>
+<li>icon: Icon of messagebox as <a href="#icon">vebview.dialog.icon</a></li>
+<li>type: Type of messagebox as <a href="#type">vebview.dialog.type</a></li>
+<li>result: Result as <a href="#result">vebview.dialog.result</a></li>
+</ul>
+<h2 id="inputboxtitle-message-default_text-string">.inputbox({title?, message?, default_text?}) string</h2>
+<ul>
+<li>title: Title of inputbox</li>
+<li>message: Message of inputbox</li>
+<li>default_text: Default text of inputbox</li>
+</ul>
+<h2 id="passwordboxtitle-message-string">.passwordbox({title?, message?}) string</h2>
+<ul>
+<li>title: Title of passwordbox</li>
+<li>message: Message of passwordbox</li>
+</ul>
+<h2 id="colorchoosertitle-default_color-string">.colorchooser({title?, default_color?}) string</h2>
+<ul>
+<li>title: Title of colorchooser</li>
+<li>default_color: Default color of colorchooser as string like "#123456"</li>
+<li>(result): String like "#123456"</li>
+</ul>
+<h2 id="openfiledialogtitle-string">.openfiledialog({title?}) string</h2>
+<ul>
+<li>title: Title of openfiledialog</li>
+</ul>
+<h2 id="savefiledialogtitle-string">.savefiledialog({title?}) string</h2>
+<ul>
+<li>title: Title of savefiledialog</li>
+</ul>
+<h2 id="selectfolderdialogtitle-string">.selectfolderdialog({title?}) string</h2>
+<ul>
+<li>title: Title of selectfolderdialog</li>
+</ul>
+<h2 id="notifypopuptitle-message-icon">.notifypopup({title?, message?, icon?})</h2>
+<ul>
+<li>title: Title of notifypopup</li>
+<li>message: Message of notifypopup</li>
+<li>icon: Icon of notifypopup as <a href="#icon">vebview.dialog.icon</a></li>
+</ul>
+<h2 id="icon">.icon</h2>
+<ul>
+<li>.INFO</li>
+<li>.WARN</li>
+<li>.ERROR</li>
+</ul>
+<h2 id="type">.type</h2>
+<ul>
+<li>.OK</li>
+<li>.OK_CANCEL</li>
+<li>.YES_NO</li>
+<li>.YES_NO_CANCEL</li>
+</ul>
+<h2 id="result">.result</h2>
+<ul>
+<li>.OK</li>
+<li>.YES</li>
+<li>.NO</li>
+<li>.CANCEL</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../../app_config/" class="btn btn-neutral float-left" title="App Config"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../os/" class="btn btn-neutral float-right" title="os">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../app_config/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../os/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

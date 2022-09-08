@@ -8,3 +8,4 @@ windows_test_on_wine.sh
 dist/*.dll
 windows_static_on_linux.sh
 log.txt
+mkdocs/site

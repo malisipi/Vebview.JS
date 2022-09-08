@@ -1,0 +1,18 @@
+site_name: Vebview.JS
+nav:
+    - 'Home': 'index.md'
+    - 'App Config': 'app_config.md'
+    - 'JavaScript API':
+        - 'dialog': 'js_api/dialog.md'
+        - 'os': 'js_api/os.md'
+        - 'fs': 'js_api/fs.md'
+        - 'window': 'js_api/window.md'
+        - 'storage': 'js_api/storage.md'
+        - 'http': 'js_api/http.md'
+        - 'assign/unassign': 'js_api/un_assign.md'
+    - 'HTML/CSS API':
+        - 'app-region': 'html_css_api/app_region.md'
+    - 'Tips':
+        - 'Borderless Window': 'tips/borderless.md'
+theme:
+    name: readthedocs
