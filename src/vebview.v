@@ -40,6 +40,7 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("bm90aWZ5cG9wdXA="), C.js_notifypopup, &webview_manager) //notifypopup
 	C.webview_bind(webview_manager.webview, cstr("c2VydmVyX3ZlcnNpb24="), C.js_server_version, &webview_manager) //server_version
 	C.webview_bind(webview_manager.webview, cstr("cmVhZF9maWxl"), C.js_read_file, &webview_manager) //read_file
+	C.webview_bind(webview_manager.webview, cstr("d3JpdGVfZmlsZV9iaW5hcnk="), C.js_write_file_binary, &webview_manager) //write_file_binary
 	C.webview_bind(webview_manager.webview, cstr("d3JpdGVfZmlsZQ=="), C.js_write_file, &webview_manager) //write_file
 	C.webview_bind(webview_manager.webview, cstr("b3Blbl9pbl9icm93c2Vy"), C.js_open_in_browser, &webview_manager) //open_in_browser
 	C.webview_bind(webview_manager.webview, cstr("c3RvcmFnZV9zZXQ="), C.js_storage_set, &webview_manager) //storage_set
@@ -77,7 +78,9 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("Y3JlYXRlX2RpcmVjdG9yeQ=="), C.js_create_directory, &webview_manager) //create_directory
 	C.webview_bind(webview_manager.webview, cstr("cmVtb3ZlX2RpcmVjdG9yeQ=="), C.js_remove_directory, &webview_manager) //remove_directory
 	C.webview_bind(webview_manager.webview, cstr("aHR0cF9kb3dubG9hZA=="), C.js_http_download, &webview_manager) //http_download
-	
+	C.webview_bind(webview_manager.webview, cstr("d2luZG93X3NldF9wcm9ncmVzcw=="), C.js_window_set_progress, &webview_manager) //window_set_progress
+	C.webview_bind(webview_manager.webview, cstr("d2luZG93X2NsZWFyX3Byb2dyZXNz"), C.js_window_clear_progress, &webview_manager) //window_clear_progress
+
 	C.webview_set_size(webview_manager.webview, webview_manager.config.default_size.width, webview_manager.config.default_size.height, C.WEBVIEW_HINT_NONE)
 
 	js_window_set_decorated(cstr(""),cstr("["+webview_manager.config.decorated.str()+"]"),webview_manager)

@@ -2,6 +2,7 @@ module main
 
 import json
 import os
+import encoding.base64
 
 fn C.js_read_file(&char, &char, &WebviewManager)
 [export:"js_read_file"]
@@ -21,6 +22,19 @@ fn js_write_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
 		os.write_file(details[0], details[1]) or {
+			C.webview_return(webview.webview, seq, 0, cstr("false"))
+			return
+		}
+		C.webview_return(webview.webview, seq, 0, cstr("true"))
+	}
+}
+
+fn C.js_write_file_binary(&char, &char, &WebviewManager)
+[export:"js_write_file_binary"]
+fn js_write_file_binary(seq &char, req &char, webview &WebviewManager) {
+	unsafe {
+		details:=json.decode([]string,req.vstring())or{return}
+		os.write_file_array(details[0], base64.decode(details[1])) or {
 			C.webview_return(webview.webview, seq, 0, cstr("false"))
 			return
 		}

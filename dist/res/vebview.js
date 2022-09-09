@@ -67,6 +67,9 @@ const vebview={
             if(file=="") return false;
             return await window["d3JpdGVfZmlsZQ=="](file, data);
         },
+        write_file_binary:async (file="",data="")=>{
+            console.warn("Not implemented yet.")
+        },
         append_file:async (file="",data="")=>{
             if(file=="") return false;
             return await window["YXBwZW5kX2ZpbGU="](file, data);
@@ -206,6 +209,9 @@ const vebview={
                 if(await vebview.os.get_version()==vebview.os.os_versions.WINDOWS){
                     await window["d2luZG93X3NldF9pY29u"](file+exts[0]);
                 } else {
+                    if(file+exts[1]!="_.progress_png"){
+                        vebview._._old_icon=file+exts[1];
+                    }
                     await window["d2luZG93X3NldF9pY29u"](file+exts[1]);
                 }
             }
@@ -224,6 +230,28 @@ const vebview={
         },
         get_title:async ()=>{
             return await window["d2luZG93X2dldF90aXRsZQ=="]();
+        },
+        set_progress:async (percent=0)=>{
+            if(await vebview.os.get_version()==vebview.os.os_versions.WINDOWS){
+                return await window["d2luZG93X3NldF9wcm9ncmVzcw=="](String(percent))
+            } else {
+                let data_png=await vebview._._svg_to_png("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256' fill='currentColor' viewBox='0 0 256 256'%3E%3Crect width='"+Math.round(256/100*percent)+"' height='256' fill='green'/%3E%3C/svg%3E");
+                await window["d3JpdGVfZmlsZV9iaW5hcnk="]("_.progress_png",data_png);
+                await vebview.window.set_icon("_.progress_png",["",""]);
+                return true;
+            }
+        },
+        clear_progress:async ()=>{
+            if(await vebview.os.get_version()==vebview.os.os_versions.WINDOWS){
+                return await window["d2luZG93X2NsZWFyX3Byb2dyZXNz"]()
+            } else {
+                if(vebview._._old_icon!=null) {
+                    await vebview.window.set_icon(vebview._._old_icon,["",""]);
+                } else {
+                    await vebview.window.set_progress(0);
+                }
+                return true;
+            }
         }
     },
     http:{
@@ -275,6 +303,21 @@ const vebview={
         },
         _assign:{
             _title:null
+        },
+        _old_icon:null,
+        _svg_to_png:async (data_svg)=>{
+            let canvas=document.createElement("canvas");
+            let content=canvas.getContext("2d");
+            canvas.width=256;
+            canvas.height=256;
+            return await new Promise((resolve, reject) => {
+                let img = document.createElement("img");
+                img.onload = () => {
+                    content.drawImage(img,0,0,256,256);
+                    resolve(canvas.toDataURL('image/png').replace("data:image/png;base64,",""))
+                }
+                img.src = data_svg;
+            })
         }
     }
 }

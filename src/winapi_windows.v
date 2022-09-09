@@ -1,5 +1,7 @@
 module main
 
+#include <windows.h>
+
 fn C.ShowWindow(voidptr, int)
 fn C.IsZoomed(voidptr) bool
 fn C.GetWindowPlacement(voidptr, &voidptr)
@@ -13,6 +15,8 @@ fn C.SetWindowPos(voidptr, voidptr, int, int, int, int, int)
 fn C.DestroyWindow(voidptr) int
 fn C.SetForegroundWindow(voidptr)
 fn C.SetPngIconForWindow(voidptr, &char)
+fn C.SetProgressValue(voidptr, int)
+fn C.ClearProgress(voidptr)
 
 [typedef]
 struct C.RECT{

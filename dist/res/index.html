@@ -98,6 +98,8 @@
             <button onclick='vebview.window.new()'>Open New Window</button>
             <button onclick='vebview.window.set_icon("res/app");'>Change app icon</button>
             <button onclick='setTimeout(vebview.window.focus,3000)'>Focus after 3 sec</button>
+            <button onclick='vebview.dialog.inputbox({}).then(e=>vebview.window.set_progress(e));'>Set Progress</button>
+            <button onclick='vebview.window.clear_progress();'>Clear Progress</button>
             <br>
             <iframe></iframe>
             <br>

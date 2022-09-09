@@ -944,6 +944,8 @@ using browser_engine = detail::cocoa_wkwebview_engine;
 #include <shlwapi.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <shobjidl.h>
+#include <ShlGuid.h>
 
 #include "WebView2.h"
 
@@ -952,6 +954,25 @@ extern "C" {
 #endif
 
 #if defined(_WIN32)
+
+WEBVIEW_API void SetProgressValue(HWND hwnd, int percent){
+  ITaskbarList3 *pTL;
+	if(S_OK != CoCreateInstance(CLSID_TaskbarList, 0, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, (void**)&pTL))
+		return;
+	pTL->HrInit();
+	pTL->SetProgressValue(hwnd, percent, 100);
+	pTL->Release();
+}
+
+WEBVIEW_API void ClearProgress(HWND hwnd){
+  ITaskbarList3 *pTL;
+	if(S_OK != CoCreateInstance(CLSID_TaskbarList, 0, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, (void**)&pTL))
+		return;
+	pTL->HrInit();
+	pTL->SetProgressState(hwnd, TBPF_NOPROGRESS);
+	pTL->Release();
+}
+
 WEBVIEW_API void SetPngIconForWindow(HWND hwnd, char* icon_src){
   HANDLE hIcon = LoadImage(0, icon_src, IMAGE_ICON, 0, 0, LR_DEFAULTSIZE | LR_LOADFROMFILE);
   SendMessage(hwnd, WM_SETICON, ICON_SMALL,(LPARAM) hIcon);

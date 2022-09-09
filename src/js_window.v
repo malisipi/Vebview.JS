@@ -384,3 +384,34 @@ fn js_window_get_title(seq &char, req &char, webview &WebviewManager){
         }
     }
 }
+
+fn C.js_window_set_progress(&char, &char, &WebviewManager)
+[export:"js_window_set_progress"]
+fn js_window_set_progress(seq &char, req &char, webview &WebviewManager){
+    unsafe{
+        $if linux {
+            println("[WARN]: Don't call Window.set_progress on Linux")
+		} $else $if windows {
+            details:=json.decode([]string,req.vstring())or{return}
+            C.SetProgressValue(C.webview_get_window(webview.webview), details[0].int())
+            C.webview_return(webview.webview, seq, 0, cstr("true"))
+        } $else {
+            println("[WARN]: Window.set_progress not implemented on this os")
+        }
+    }
+}
+
+fn C.js_window_clear_progress(&char, &char, &WebviewManager)
+[export:"js_window_clear_progress"]
+fn js_window_clear_progress(seq &char, req &char, webview &WebviewManager){
+    unsafe{
+        $if linux {
+            println("[WARN]: Don't call Window.clear_progress on Linux")
+		} $else $if windows {
+            C.ClearProgress(C.webview_get_window(webview.webview))
+            C.webview_return(webview.webview, seq, 0, cstr("true"))
+        } $else {
+            println("[WARN]: Window.clear_progress not implemented on this os")
+        }
+    }
+}
