@@ -1,5 +1,7 @@
 module main
 
+import clipboard
+
 #include <windows.h>
 
 fn C.ShowWindow(voidptr, int)
@@ -24,4 +26,18 @@ struct C.RECT{
     left    int
     bottom  int
     top     int
+}
+
+fn win_clipboard_set(text string) bool {
+    mut clip:=clipboard.new()
+    result:=clip.copy(text)
+    clip.destroy()
+    return result
+}
+
+fn win_clipboard_get() string {
+    mut clip:=clipboard.new()
+    result:=clip.get_text()
+    clip.destroy()
+    return result
 }

@@ -100,6 +100,8 @@
             <button onclick='setTimeout(vebview.window.focus,3000)'>Focus after 3 sec</button>
             <button onclick='vebview.dialog.inputbox({}).then(e=>vebview.window.set_progress(e));'>Set Progress</button>
             <button onclick='vebview.window.clear_progress();'>Clear Progress</button>
+            <button onclick='vebview.clipboard.set("123456789");'>Set clipboard "123456789"</button>
+            <button onclick='vebview.clipboard.get().then(e=>vebview.dialog.messagebox({message:e}));'>Get clipboard</button>
             <br>
             <iframe></iframe>
             <br>

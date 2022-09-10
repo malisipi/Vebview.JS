@@ -80,6 +80,8 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("aHR0cF9kb3dubG9hZA=="), C.js_http_download, &webview_manager) //http_download
 	C.webview_bind(webview_manager.webview, cstr("d2luZG93X3NldF9wcm9ncmVzcw=="), C.js_window_set_progress, &webview_manager) //window_set_progress
 	C.webview_bind(webview_manager.webview, cstr("d2luZG93X2NsZWFyX3Byb2dyZXNz"), C.js_window_clear_progress, &webview_manager) //window_clear_progress
+	C.webview_bind(webview_manager.webview, cstr("Y2xpcGJvYXJkX3NldA=="), C.js_clipboard_set, &webview_manager) //clipboard_set
+	C.webview_bind(webview_manager.webview, cstr("Y2xpcGJvYXJkX2dldA=="), C.js_clipboard_get, &webview_manager) //clipboard_get
 
 	C.webview_set_size(webview_manager.webview, webview_manager.config.default_size.width, webview_manager.config.default_size.height, C.WEBVIEW_HINT_NONE)
 

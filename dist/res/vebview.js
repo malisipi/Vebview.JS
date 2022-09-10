@@ -286,6 +286,45 @@ const vebview={
             }
         }
     },
+    clipboard:{
+        set:async (text)=>{
+            if(await vebview.os.get_version()==vebview.os.os_versions.WINDOWS){
+                return await window["Y2xpcGJvYXJkX3NldA=="](text);
+            } else {
+                let copy_selector=document.createElement("input");
+                copy_selector.id="vebview_copy_selector";
+                copy_selector.style.position="fixed";
+                copy_selector.style.left="-50000px";
+                copy_selector.style.top="-50000px";
+                copy_selector.value=text;
+                document.body.insertAdjacentElement("beforeend",copy_selector);
+                let copy_selector_in_doc=document.querySelector("input#vebview_copy_selector");
+                copy_selector_in_doc.setSelectionRange(0,99999);
+                let _result=document.execCommand("copy");
+                copy_selector_in_doc.remove();
+                return _result;
+            }
+        },
+        get:async ()=>{
+            if(await vebview.os.get_version()==vebview.os.os_versions.WINDOWS){
+                return await window["Y2xpcGJvYXJkX2dldA=="]();
+            } else {
+                let copy_selector=document.createElement("input");
+                copy_selector.id="vebview_copy_selector";
+                copy_selector.style.position="fixed";
+                copy_selector.style.left="-50000px";
+                copy_selector.style.top="-50000px";
+                copy_selector.value="";
+                document.body.insertAdjacentElement("beforeend",copy_selector);
+                let copy_selector_in_doc=document.querySelector("input#vebview_copy_selector");
+                copy_selector_in_doc.setSelectionRange(0,99999);
+                document.execCommand("paste");
+                _the_text=copy_selector_in_doc.value;
+                copy_selector_in_doc.remove();
+                return _the_text;
+            }
+        }
+    },
     assign:{
         title:async (obj)=>{
             vebview._._assign._title=obj;
