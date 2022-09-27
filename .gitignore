@@ -9,3 +9,7 @@ dist/*.dll
 windows_static_on_linux.sh
 log.txt
 mkdocs/site
+*_setup.exe
+*.iss
+*.AppImage
+appimage

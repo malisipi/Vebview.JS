@@ -6,3 +6,4 @@ gcc -c build/vebview.c -std=gnu99 -o build/vebview.o -I "/usr/include" -L "/usr/
 gcc -c "$V_LOC/thirdparty/cJSON/cJSON.c" -std=c99 -o build/cJSON.o
 gcc -c libs/tinyfd/tinyfiledialogs.c -std=c99 -o build/tinyfd.o
 g++ build/vebview.o build/webview.o build/cJSON.o build/tinyfd.o $(pkg-config --libs gtk+-3.0 webkit2gtk-4.0) -I "libs/tinyfd" -I "libs/webview" -I "$V_LOC/thirdparty/cJSON/" -I "/usr/include" -L "/usr/lib" -I "/usr/local/include/openssl" -lpthread -lssl -lcrypto -ldl -lpthread -o dist/vebview
+upx --lzma --overlay=strip dist/vebview

@@ -5,7 +5,7 @@
 ┃ ├─ messagebox              │✅│✅│⚠️│✅┃
 ┃ ├─ inputbox                │✅│✅│⚠️│✅┃
 ┃ ├─ passwordbox             │✅│✅│⚠️│✅┃
-┃ ├─ colorchooser            │✅│✅│⚠️│✅┃
+┃ ├─ colorchooser            │✅│〽️│⚠️│✅┃
 ┃ ├─ openfiledialog          │✅│✅│⚠️│✅┃
 ┃ ├─ savefiledialog          │✅│✅│⚠️│✅┃
 ┃ ├─ selectfolderdialog      │✅│✅│⚠️│✅┃
@@ -80,6 +80,7 @@
 ┃ │ Browser API Polyfills    │✔️│✔️│✔️│〽️┃
 ┃ ├─ Notification API        │✔️│✔️│✔️│✅┃
 ┃ ├─ Native File System API  │✔️│✔️│✔️│❌┃
+┃ │ App Bundles              │〽️│〽️│❌│✔️┃
 ┃ ├─ title                   │✔️│✔️│✔️│✅┃
 ┃ │ Non-Public¹              │✅│✅│⚠️│✅┃
 ┃ └─ server_version          │✅│✅│⚠️│✅┃

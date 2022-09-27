@@ -1,11 +1,4 @@
-```
-█   █ ████ ████  █   █ █ ████ █   █   █     █  ███
-█   █ █    █   █ █   █ █ █    █   █   █     █ █   
- ▓ ▓  ▓▓▓▓ ▓▓▓▓   ▓ ▓  ▓ ▓▓▓▓  ▓ ▓ ▓ ▓      ▓  ▓▓ 
- ▒ ▒  ▒    ▒   ▒  ▒ ▒  ▒ ▒     ▒ ▒ ▒ ▒   ▒  ▒    ▒
-  ░   ░░░░ ░░░░    ░   ░ ░░░░   ░   ░  ░  ░░  ░░░ 
-0.1.0                   Move Beyond the Web Border
-```
+# <img width="48px" src="./assets/icon.ico"> Webview.JS
 
 <center><img src="./assets/screenshot_01.png" title="Borderless Vebview.JS example that displays vlang.io with built-in webview API"/></center>
 
@@ -62,7 +55,7 @@ $ ./windows_on_linux.sh
 
 * On Windows
     * vebview.dialog.ColorChooser causes crashs.
-    * vebview.window.move can't move window to correct position when monitor scaled. _WindowWidth/window.innerWidth gives display scale, (moveX,moveY)*thisValue could be fix that, but not implemented yet_
+    * ~~vebview.window.move can't move window to correct position when monitor scaled. _WindowWidth/window.innerWidth gives display scale, (moveX,moveY)*thisValue could be fix that, but not implemented yet_~~ That fixed temporarily with disabling enable_dpi_awareness. That causes blurry window while enabled dpi system-wide.
 * On Linux
     * There're no known bug :)
 

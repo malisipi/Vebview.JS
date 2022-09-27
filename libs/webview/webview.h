@@ -1248,7 +1248,7 @@ public:
     if (!m_com_init.is_initialized()) {
       return;
     }
-    enable_dpi_awareness();
+    //enable_dpi_awareness();
     if (window == nullptr) {
       HINSTANCE hInstance = GetModuleHandle(nullptr);
       HICON icon = (HICON)LoadImage(
