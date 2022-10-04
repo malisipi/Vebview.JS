@@ -53,9 +53,9 @@ __global (
 	latest_id			int
 	app_config			Config
 	user_data_storage	map[string]string
-	webviews			[]WebviewManager
 	alive_windows		map[int]bool
 	active_window_count	int
+	hotkeys				map[int]WebviewManager
 )
 
 fn cstr(the_string string) &char {

@@ -334,6 +334,29 @@ const vebview={
     unassign:{
         title:(obj)=>{vebview._._assign._title=null;}
     },
+    hotkeys:{
+        register:({key,handler=()=>{console.log("Shortcut Works!");},_alt=0,_shift=0,_super=0,_ctrl=0})=>{
+            key=String(_ctrl)+String(_shift)+String(_alt)+String(_super)+String(key.toUpperCase()[0]?.charCodeAt(0)).padStart(3, "0");
+            if(key){
+                window["cmVnaXN0ZXJfaG90a2V5"](key);
+                vebview._._hotkeys._functions[key]=handler;
+            }
+        },
+        registerHEX:({key,handler=()=>{console.log("Shortcut Works!");},_alt=0,_shift=0,_super=0,_ctrl=0})=>{
+            key=String(_ctrl)+String(_shift)+String(_alt)+String(_super)+String(parseInt(key,16)).padStart(3, "0");
+            if(key){
+                window["cmVnaXN0ZXJfaG90a2V5"](key);
+                vebview._._hotkeys._functions[key]=handler;
+            }
+        },
+        unregisterHEX:({key,_alt=0,_shift=0,_super=0,_ctrl=0})=>{
+            key=String(_ctrl)+String(_shift)+String(_alt)+String(_super)+String(parseInt(key,16)).padStart(3, "0");
+            if(key){
+                window["dW5yZWdpc3Rlcl9ob3RrZXk="](key);
+                vebview._._hotkeys._functions[key]=undefined;
+            }
+        }
+    },
     _:{
         _app_region:{
             _click:false,
@@ -357,6 +380,12 @@ const vebview={
                 }
                 img.src = data_svg;
             })
+        },
+        _hotkeys:{
+            _functions:{},
+            _event_handler:(event_code)=>{
+                vebview._._hotkeys._functions[event_code.padStart(7, "0")]();
+            }
         }
     }
 }

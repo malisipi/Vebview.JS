@@ -19,6 +19,8 @@ fn C.SetForegroundWindow(voidptr)
 fn C.SetPngIconForWindow(voidptr, &char)
 fn C.SetProgressValue(voidptr, int)
 fn C.ClearProgress(voidptr)
+fn C.RegisterHotKey(voidptr, int, int, int)
+fn C.UnregisterHotKey(voidptr, int)
 
 [typedef]
 struct C.RECT{

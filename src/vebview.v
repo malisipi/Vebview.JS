@@ -19,6 +19,7 @@ fn C.webview_navigate(w Webview_t, url &char)
 fn C.webview_bind(w Webview_t, func_name &char, func fn(&char, &char, &WebviewManager), arg voidptr)
 fn C.webview_return(w Webview_t, seq &char, status int, result &char)
 fn C.webview_get_window(w Webview_t) voidptr
+fn C.webview_eval(w Webview_t, code &char)
 
 fn create_webview(webview_app_config Config){
 	active_window_count++
@@ -82,6 +83,8 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("d2luZG93X2NsZWFyX3Byb2dyZXNz"), C.js_window_clear_progress, &webview_manager) //window_clear_progress
 	C.webview_bind(webview_manager.webview, cstr("Y2xpcGJvYXJkX3NldA=="), C.js_clipboard_set, &webview_manager) //clipboard_set
 	C.webview_bind(webview_manager.webview, cstr("Y2xpcGJvYXJkX2dldA=="), C.js_clipboard_get, &webview_manager) //clipboard_get
+	C.webview_bind(webview_manager.webview, cstr("cmVnaXN0ZXJfaG90a2V5"), C.js_register_hotkey, &webview_manager) //register_hotkey
+	C.webview_bind(webview_manager.webview, cstr("dW5yZWdpc3Rlcl9ob3RrZXk="), C.js_unregister_hotkey, &webview_manager) //unregister_hotkey
 
 	C.webview_set_size(webview_manager.webview, webview_manager.config.default_size.width, webview_manager.config.default_size.height, C.WEBVIEW_HINT_NONE)
 
@@ -94,8 +97,6 @@ fn create_webview(webview_app_config Config){
 	} $else $if windows {
 		webview_manager.title=webview_manager.config.title
 	}
-
-	webviews << webview_manager
 
 	println(webview_manager.id)
 	$if linux {

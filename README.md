@@ -58,5 +58,8 @@ $ ./windows_on_linux.sh
     * ~~vebview.window.move can't move window to correct position when monitor scaled. _WindowWidth/window.innerWidth gives display scale, (moveX,moveY)*thisValue could be fix that, but not implemented yet_~~ That fixed temporarily with disabling enable_dpi_awareness. That causes blurry window while enabled dpi system-wide.
 * On Linux
     * There're no known bug :)
+* On App Bundles
+    * Storage is temporary, can not save data. Causes write permission. (Windows & Linux)
+    * SetProgress is not work. Causes write permission. (Linux)
 
 > If you find a bug, open new issue.

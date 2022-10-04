@@ -955,6 +955,8 @@ extern "C" {
 
 #if defined(_WIN32)
 
+void hotkey_event_listener(int key);
+
 WEBVIEW_API void SetProgressValue(HWND hwnd, int percent){
   ITaskbarList3 *pTL;
 	if(S_OK != CoCreateInstance(CLSID_TaskbarList, 0, CLSCTX_INPROC_SERVER, IID_ITaskbarList3, (void**)&pTL))
@@ -1360,6 +1362,8 @@ public:
         delete f;
       } else if (msg.message == WM_QUIT) {
         return;
+      } else if (msg.message == WM_HOTKEY) {
+        hotkey_event_listener((int)msg.wParam);
       }
     }
   }
