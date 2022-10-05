@@ -103,6 +103,8 @@
             <button onclick='vebview.window.clear_progress();'>Clear Progress</button>
             <button onclick='vebview.clipboard.set("123456789");'>Set clipboard "123456789"</button>
             <button onclick='vebview.clipboard.get().then(e=>vebview.dialog.messagebox({message:e}));'>Get clipboard</button>
+            <button onclick='vebview.hotkeys.register({key:"A",_ctrl:1,handler:()=>{vebview.dialog.messagebox({message:"Ctrl+A was pressed"})}});'>Register Ctrl+A</button>
+            <button onclick='vebview.hotkeys.unregister({key:"A",_ctrl:1});'>Unregister Ctrl+A</button>
             <br>
             <iframe></iframe>
             <br>

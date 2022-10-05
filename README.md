@@ -50,6 +50,7 @@ $ ./windows_on_linux.sh
 * [Tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/) licensed by ZLib licence.
 * [Webview](https://github.com/malisipi/vebview-webview) licensed by MIT License.
 * [Webview2 (1.0.1264.42)](https://www.nuget.org/packages/Microsoft.Web.WebView2/) -&gt; [license](./libs/webview2/LICENSE.txt)
+* [Keybinder](https://github.com/kupferlauncher/keybinder) licensed by MIT License.
 
 ## Known Bugs
 

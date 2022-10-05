@@ -26,12 +26,14 @@ fn C.gtk_window_present(voidptr)
 fn C.gtk_window_resize(voidptr, int, int)
 fn C.gtk_window_get_title(voidptr) &char
 fn C.gtk_window_get_size(voidptr, &int, &int)
+fn C.keybinder_init()
+fn C.keybinder_bind(&char, fn(&char, voidptr), voidptr)
+fn C.keybinder_unbind(&char, fn(&char, voidptr))
 
 fn C.close_webview_event(&WebviewManager)
 [export:"close_webview_event"]
 fn close_webview_event(webview &WebviewManager) {
 	unsafe {
-		print("Closed idk which window :)")
         active_window_count--
 	}
 }

@@ -98,6 +98,10 @@ fn create_webview(webview_app_config Config){
 		webview_manager.title=webview_manager.config.title
 	}
 
+	$if linux {
+		C.keybinder_init()
+	}
+
 	println(webview_manager.id)
 	$if linux {
 		C.gtk_init(0, C.NULL)

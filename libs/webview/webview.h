@@ -955,7 +955,7 @@ extern "C" {
 
 #if defined(_WIN32)
 
-void hotkey_event_listener(int key);
+void hotkey_event_listener_win(int key);
 
 WEBVIEW_API void SetProgressValue(HWND hwnd, int percent){
   ITaskbarList3 *pTL;
@@ -1363,7 +1363,7 @@ public:
       } else if (msg.message == WM_QUIT) {
         return;
       } else if (msg.message == WM_HOTKEY) {
-        hotkey_event_listener((int)msg.wParam);
+        hotkey_event_listener_win((int)msg.wParam);
       }
     }
   }
