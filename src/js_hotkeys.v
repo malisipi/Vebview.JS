@@ -11,7 +11,15 @@ fn C.hotkey_event_listener_linux(event &char, data voidptr)
 [export: "hotkey_event_listener_linux"]
 fn hotkey_event_listener_linux(event &char, data voidptr){
 	unsafe{
-		C.webview_eval(hotkeys[event.vstring()[0]].webview ,cstr("vebview._._hotkeys._event_handler(\""+int(event.vstring()[0]).str()+"\");"))
+		code:=event.vstring()
+		keycode:=(code.replace("<Ctrl>","").replace("<Shift>","").replace("<Super>","").replace("<Alt>",""))[0]
+		mod_ctrl:=if code.contains("<Ctrl>") {"1"} else {"0"}
+		mod_shift:=if code.contains("<Shift>") {"1"} else {"0"}
+		mod_alt:=if code.contains("<Alt>") {"1"} else {"0"}
+		mod_super:=if code.contains("<Super>") {"1"} else {"0"}
+		mod:=mod_ctrl+mod_shift+mod_alt+mod_super
+		keybinding:=(mod+fill_zeroes(int(keycode).str(),3))
+		C.webview_eval(hotkeys[keybinding.int()].webview ,cstr("vebview._._hotkeys._event_handler(\""+keybinding+"\");"))
 	}
 }
 

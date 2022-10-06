@@ -61,3 +61,7 @@ __global (
 fn cstr(the_string string) &char {
 	return &char(the_string.str)
 }
+
+fn fill_zeroes(the_string string, len int) string{
+	return "0".repeat(len-the_string.len)+the_string
+}
