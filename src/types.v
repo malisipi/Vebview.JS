@@ -56,6 +56,7 @@ __global (
 	alive_windows		map[int]bool
 	active_window_count	int
 	hotkeys				map[int]WebviewManager
+	app_args			[]string
 )
 
 fn cstr(the_string string) &char {

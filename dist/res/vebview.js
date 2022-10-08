@@ -364,6 +364,9 @@ const vebview={
             }
         }
     },
+    args:async ()=>{
+        return await window["YXBwX2FyZ3M="]();
+    },
     _:{
         _app_region:{
             _click:false,

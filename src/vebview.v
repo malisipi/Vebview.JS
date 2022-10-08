@@ -85,6 +85,7 @@ fn create_webview(webview_app_config Config){
 	C.webview_bind(webview_manager.webview, cstr("Y2xpcGJvYXJkX2dldA=="), C.js_clipboard_get, &webview_manager) //clipboard_get
 	C.webview_bind(webview_manager.webview, cstr("cmVnaXN0ZXJfaG90a2V5"), C.js_register_hotkey, &webview_manager) //register_hotkey
 	C.webview_bind(webview_manager.webview, cstr("dW5yZWdpc3Rlcl9ob3RrZXk="), C.js_unregister_hotkey, &webview_manager) //unregister_hotkey
+	C.webview_bind(webview_manager.webview, cstr("YXBwX2FyZ3M="), C.js_app_args, &webview_manager) //app_args
 
 	C.webview_set_size(webview_manager.webview, webview_manager.config.default_size.width, webview_manager.config.default_size.height, C.WEBVIEW_HINT_NONE)
 
@@ -123,6 +124,7 @@ fn main() {
 	latest_id=1
 
 	app_config=json.decode(Config, os.read_file("app.config")or{os.read_file("res/app.config")or{"{}"}}) or {panic("[ERR ]: app.config -> Unable to parse")}
+	app_args=os.args_after("")
 
 	if os.exists(storage_file_location) {
 		user_data_storage=json.decode(map[string]string, os.read_file(storage_file_location)or{"{}"}) or {print("[WARN]: Storage file was corrupted.") map[string]string }
