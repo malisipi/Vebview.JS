@@ -12,7 +12,7 @@ BEGIN
       VALUE "FileDescription", "Vebview.JS"
       VALUE "FileVersion", "1.0"
       VALUE "InternalName", "Vebview.JS"
-      VALUE "LegalCopyright", "Â© malisipi / Apache License 2.0"
+      VALUE "LegalCopyright", "© malisipi / Apache License 2.0"
       VALUE "OriginalFilename", "vebview.exe"
       VALUE "ProductName", "Vebview.JS"
       VALUE "ProductVersion", "1.0"

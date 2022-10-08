@@ -70,6 +70,6 @@ fn C.js_notifypopup(&char, &char, &WebviewManager)
 fn js_notifypopup(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
-		notifypopup(details[0], details[1], details[2])
+		go notifypopup(details[0], details[1], details[2])
 	}
 }
