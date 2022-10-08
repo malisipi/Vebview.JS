@@ -367,6 +367,22 @@ const vebview={
     args:async ()=>{
         return await window["YXBwX2FyZ3M="]();
     },
+    messenger:{
+        new:(channel)=>{
+            vebview._._messenger._channels[channel]=new BroadcastChannel("vebview_"+channel);
+        },
+        add_event_listener:(channel,listener=()=>{})=>{
+            vebview._._messenger._channels[channel].onmessage=(e,the_listener=listener)=>{
+                the_listener(e.data);
+            };
+        },
+        post:(channel,args)=>{
+            vebview._._messenger._channels[channel].postMessage(args);
+        },
+        close:(channel)=>{
+            vebview._._messenger._channels[channel]=undefined;
+        }
+    },
     _:{
         _app_region:{
             _click:false,
@@ -396,6 +412,9 @@ const vebview={
             _event_handler:(event_code)=>{
                 vebview._._hotkeys._functions[event_code.padStart(7, "0")]();
             }
+        },
+        _messenger:{
+            _channels:{}
         }
     }
 }

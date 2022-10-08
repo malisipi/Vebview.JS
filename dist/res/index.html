@@ -70,6 +70,10 @@
                 bottom: 0;
             }
         </style>
+        <script>
+            vebview.messenger.new("example_port");
+            vebview.messenger.add_event_listener("example_port",(e)=>{console.log(e);});
+        </script>
     </head>
     <body dir="ltr">
         <div class="title-bar" app-region="drag" oncontextmenu="return false;">
@@ -106,6 +110,7 @@
             <button onclick='vebview.hotkeys.register({key:"A",_ctrl:1,handler:()=>{vebview.dialog.messagebox({message:"Ctrl+A was pressed"})}});'>Register Ctrl+A</button>
             <button onclick='vebview.hotkeys.unregister({key:"A",_ctrl:1});'>Unregister Ctrl+A</button>
             <button onclick='vebview.args().then(e=>vebview.dialog.messagebox({message:e.join("  ")}))'>Get Args</button>
+            <button onclick='vebview.messenger.post("example_port","Test");'>Post Message (Look Up Another Window's Console)</button>
             <br>
             <iframe></iframe>
             <br>
