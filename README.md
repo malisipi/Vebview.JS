@@ -47,7 +47,7 @@ $ ./windows_on_linux.sh
 ## License
 
 > This project licensed by [Apache License 2.0](./LICENSE).
-* [Tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/) licensed by ZLib licence.
+* [Tinyfiledialogs](https://sourceforge.net/projects/tinyfiledialogs/)(Patched) licensed by ZLib licence.
 * [Webview](https://github.com/malisipi/vebview-webview) licensed by MIT License.
 * [Webview2 (1.0.1264.42)](https://www.nuget.org/packages/Microsoft.Web.WebView2/) -&gt; [license](./libs/webview2/LICENSE.txt)
 * [Keybinder](https://github.com/kupferlauncher/keybinder) licensed by MIT License.
@@ -55,7 +55,6 @@ $ ./windows_on_linux.sh
 ## Known Bugs
 
 * On Windows
-    * vebview.dialog.ColorChooser causes crashs.
     * ~~vebview.window.move can't move window to correct position when monitor scaled. _WindowWidth/window.innerWidth gives display scale, (moveX,moveY)*thisValue could be fix that, but not implemented yet_~~ That fixed temporarily with disabling enable_dpi_awareness. That causes blurry window while enabled dpi system-wide.
 * On Linux
     * There're no known bug :)
