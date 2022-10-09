@@ -126,6 +126,10 @@ fn main() {
 	app_config=json.decode(Config, os.read_file("app.config")or{os.read_file("res/app.config")or{"{}"}}) or {panic("[ERR ]: app.config -> Unable to parse")}
 	app_args=os.args_after("")
 
+	if !app_config.multiple_instances {
+		multiple_instances()
+	}
+
 	if os.exists(storage_file_location) {
 		user_data_storage=json.decode(map[string]string, os.read_file(storage_file_location)or{"{}"}) or {print("[WARN]: Storage file was corrupted.") map[string]string }
 	} else {

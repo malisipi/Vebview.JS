@@ -79,6 +79,7 @@
 ┃ ├─ registerHEX             │✅│✅│❌│✅┃
 ┃ ├─ unregisterHEX           │✅│✅│❌│✅┃
 ┃ │ args                     │✅│✅│⚠️│✅┃
+┃ │ manage_instances         │✅│✅│⚠️│✅┃
 ┃ │ custom_backend           │〽️│〽️│⚠️│✔️┃
 ┃ │ file://_support          │✅│✅│❌│✔️┃
 ┃ │ cloud_loading            │✅│✅│⚠️│✔️┃

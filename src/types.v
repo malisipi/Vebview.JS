@@ -35,6 +35,7 @@ mut:
 
 struct Config {
 mut:
+	id			string	= "js.vebview.example"
 	title			string	= "Vebview.JS"
 	debug			bool	//= false
 	port			int		= 7001
@@ -47,6 +48,7 @@ mut:
 	localhost		bool	= true
 	cloud_loading	bool	//= false
 	custom_backend	string	//= ""
+	multiple_instances	bool	= true
 }
 
 __global (
