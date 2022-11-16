@@ -29,6 +29,7 @@ fn C.gtk_window_get_size(voidptr, &int, &int)
 fn C.keybinder_init()
 fn C.keybinder_bind(&char, fn(&char, voidptr), voidptr)
 fn C.keybinder_unbind(&char, fn(&char, voidptr))
+fn C.putenv(&char) int
 
 fn C.close_webview_event(&WebviewManager)
 [export:"close_webview_event"]

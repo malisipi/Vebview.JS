@@ -49,6 +49,7 @@ mut:
 	cloud_loading	bool	//= false
 	custom_backend	string	//= ""
 	multiple_instances	bool	= true
+	prefer_wayland		bool
 }
 
 __global (

@@ -117,7 +117,7 @@ fn create_webview(webview_app_config Config){
 }
 
 fn main() {
-	os.chdir(os.dir(os.executable()))?
+	os.chdir(os.dir(os.executable()))!
 	print(vebview_js_art)
 
 	active_window_count=0
@@ -128,6 +128,12 @@ fn main() {
 
 	if !app_config.multiple_instances {
 		multiple_instances()
+	}
+	
+	$if linux {
+		if !app_config.prefer_wayland {
+			C.putenv(c"GDK_BACKEND=x11,wayland")
+		}
 	}
 
 	if os.exists(storage_file_location) {
@@ -148,7 +154,7 @@ fn main() {
 		}
 	} else {
 		$if windows {
-			C._putenv(cstr("--allow-file-access-from-files"))
+			C._putenv(c"--allow-file-access-from-files")
 		}
 		app_config.main_page="file://"+os.resource_abs_path(app_config.mount_folder+"/"+app_config.main_page)
 	}
