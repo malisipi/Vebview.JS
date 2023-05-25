@@ -1,6 +1,6 @@
 # <img width="48px" src="./assets/icon.ico"> Webview.JS
 
-<center><img src="./assets/screenshot_01.png" title="Borderless Vebview.JS example that displays vlang.io with built-in webview API"/></center>
+<div align="center"><img src="./assets/screenshot_01.png" title="Borderless Vebview.JS example that displays vlang.io with built-in webview API"/></div>
 
 | **Works Everywhere** | **Small App Bundles, Really** |
 |------------------|--------------------|
