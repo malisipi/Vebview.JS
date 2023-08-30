@@ -11,8 +11,6 @@ jobs:
               run: git clone https://github.com/vlang/v && cd v && make && cd ..
             - name: Compiling Vebview.JS
               run: git clone https://github.com/malisipi/Vebview.JS && cd Vebview.JS && export V_LOC=../v && ./linux.sh && cd ..
-            - name: Exporting RELEASE_NAME
-              run: export RELEASE_NAME=`date -u +%s`
             - name: Creating Zip File
               run: zip -r linux.zip Vebview.JS
             - uses: actions/checkout@v3
@@ -21,6 +19,6 @@ jobs:
                 repo_token: ${{ secrets.GITHUB_TOKEN }}
                 file: ./linux.zip
                 asset_name: "linux.zip"
-                tag: ${{ env.RELEASE_NAME }}
+                tag: ${{ github.sha }}
                 overwrite: true
                 body: "This release was uploaded with Actions"
