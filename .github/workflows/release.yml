@@ -1,13 +1,11 @@
 name: Release
 run-name: Releasing app
 on: [workflow_dispatch]
-defaults:
-    run:
-        working-directory: .
 jobs:
     build-linux:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v3
             - name: Installing libraries
               run: sudo apt-get update && sudo apt-get -y -f install libwebkit2gtk-4.0-dev libgtk-3-dev git zip upx
             - name: Installing V
@@ -18,11 +16,6 @@ jobs:
               run: echo "RELEASE_NAME=v$(date -u +%s)" >> $GITHUB_ENV
             - name: Creating Zip File
               run: zip -r linux.zip ./dist
-            - uses: actions/checkout@v3
-            - uses: actions/upload-artifact@v3
-              with:
-                name: linux.zip
-                path: "linux.zip"
             - uses: ncipollo/release-action@v1
               with:
                 artifacts: "linux.zip"
