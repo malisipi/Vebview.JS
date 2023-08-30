@@ -17,7 +17,7 @@ jobs:
             - name: Exporting RELEASE_NAME
               run: echo "RELEASE_NAME=v$(date -u +%s)" >> $GITHUB_ENV
             - name: Creating Zip File
-              run: zip -r linux.zip Vebview.JS/dist
+              run: zip -r linux.zip ./dist
             - uses: actions/checkout@v3
             - uses: actions/upload-artifact@v3
               with:
