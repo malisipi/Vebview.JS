@@ -14,13 +14,13 @@ jobs:
             - name: Exporting RELEASE_NAME
               run: echo "RELEASE_NAME=v$(date -u +%s)" >> $GITHUB_ENV
             - name: Creating Zip File
-              run: zip -r linux.zip Vebview.JS
+              run: zip -r linux.zip Vebview.JS/dist
             - uses: actions/checkout@v3
-            - uses: svenstaro/upload-release-action@v2
+            - uses: ncipollo/release-action@v1
               with:
-                repo_token: ${{ secrets.GITHUB_TOKEN }}
-                file: linux.zip
-                asset_name: "linux.zip"
+                artifacts: "linux.zip"
+                token: ${{ secrets.GITHUB_TOKEN }}
                 tag: ${{ env.RELEASE_NAME }}
-                overwrite: true
-                body: "This release was uploaded with Actions"
+                name: ${{ env.RELEASE_NAME }}
+                body: "This build was released with GitHub Actions"
+                commit: ${{ github.sha }}
