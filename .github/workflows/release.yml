@@ -4,13 +4,16 @@ on: [workflow_dispatch]
 jobs:
     build-linux:
         runs-on: ubuntu-latest
+        defaults:
+          run:
+            working-directory: .
         steps:
             - name: Installing libraries
               run: sudo apt-get update && sudo apt-get -y -f install libwebkit2gtk-4.0-dev libgtk-3-dev git zip upx
             - name: Installing V
               run: git clone https://github.com/vlang/v && cd v && make && cd ..
             - name: Compiling Vebview.JS
-              run: git clone https://github.com/malisipi/Vebview.JS && cd Vebview.JS && export V_LOC=../v && ./linux.sh && cd ..
+              run: export V_LOC=./v && ./linux.sh
             - name: Exporting RELEASE_NAME
               run: echo "RELEASE_NAME=v$(date -u +%s)" >> $GITHUB_ENV
             - name: Creating Zip File
