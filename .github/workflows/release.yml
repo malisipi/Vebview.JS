@@ -16,6 +16,10 @@ jobs:
             - name: Creating Zip File
               run: zip -r linux.zip Vebview.JS/dist
             - uses: actions/checkout@v3
+            - uses: actions/upload-artifact@v3
+              with:
+                name: linux.zip
+                path: "linux.zip"
             - uses: ncipollo/release-action@v1
               with:
                 artifacts: "linux.zip"
