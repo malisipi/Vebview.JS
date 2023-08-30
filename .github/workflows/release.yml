@@ -1,0 +1,26 @@
+name: Release
+run-name: Releasing app
+on: []
+jobs:
+    build-linux:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Installing libraries
+              run: sudo apt-get update && sudo apt-get -y -f install libwebkit2gtk-4.0-dev libgtk-3-dev git zip upx
+            - name: Installing V
+              run: git clone https://github.com/vlang/v && cd v && make && cd ..
+            - name: Compiling Vebview.JS
+              run: git clone https://github.com/malisipi/Vebview.JS && cd Vebview.JS && export V_LOC=../v && ./linux.sh && cd ..
+            - name: Exporting RELEASE_NAME
+              run: export RELEASE_NAME=`date -u +%s`
+            - name: Creating Zip File
+              run: zip -r linux.zip Vebview.JS
+            - uses: actions/checkout@v3
+            - uses: svenstaro/upload-release-action@v2
+              with:
+                repo_token: ${{ secrets.GITHUB_TOKEN }}
+                file: ./linux.zip
+                asset_name: "linux.zip"
+                tag: ${{ env.RELEASE_NAME }}
+                overwrite: true
+                body: "This release was uploaded with Actions"

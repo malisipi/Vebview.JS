@@ -13,4 +13,3 @@ mkdocs/site
 *.iss
 *.AppImage
 appimage
-.github/workflows
