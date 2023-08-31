@@ -1,4 +1,4 @@
-# <img width="48px" src="./assets/icon.ico"> Webview.JS
+# <img width="48px" src="./assets/icon.ico"> Vebview.JS
 
 <div align="center"><img src="./assets/screenshot_01.png" title="Borderless Vebview.JS example that displays vlang.io with built-in webview API"/></div>
 
