@@ -32,7 +32,7 @@ fn C.keybinder_unbind(&char, fn(&char, voidptr))
 fn C.putenv(&char) int
 
 fn C.close_webview_event(&WebviewManager)
-[export:"close_webview_event"]
+@[export:"close_webview_event"]
 fn close_webview_event(webview &WebviewManager) {
 	unsafe {
         active_window_count--

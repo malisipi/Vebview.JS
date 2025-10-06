@@ -3,7 +3,7 @@ module main
 import json
 
 fn C.js_clipboard_set(&char, &char, &WebviewManager)
-[export:"js_clipboard_set"]
+@[export:"js_clipboard_set"]
 fn js_clipboard_set(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -18,7 +18,7 @@ fn js_clipboard_set(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_clipboard_get(&char, &char, &WebviewManager)
-[export:"js_clipboard_get"]
+@[export:"js_clipboard_get"]
 fn js_clipboard_get(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {

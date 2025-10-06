@@ -3,7 +3,7 @@ module main
 import json
 
 fn C.js_set_title(&char, &char, &WebviewManager)
-[export:"js_set_title"]
+@[export:"js_set_title"]
 fn js_set_title(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         title:=json.decode([]string,req.vstring())or{return}[0]
@@ -15,7 +15,7 @@ fn js_set_title(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_maximize(&char, &char, &WebviewManager)
-[export:"js_window_maximize"]
+@[export:"js_window_maximize"]
 fn js_window_maximize(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         $if linux {
@@ -29,7 +29,7 @@ fn js_window_maximize(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_unmaximize(&char, &char, &WebviewManager)
-[export:"js_window_unmaximize"]
+@[export:"js_window_unmaximize"]
 fn js_window_unmaximize(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         $if linux {
@@ -43,7 +43,7 @@ fn js_window_unmaximize(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_minimize(&char, &char, &WebviewManager)
-[export:"js_window_minimize"]
+@[export:"js_window_minimize"]
 fn js_window_minimize(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         $if linux {
@@ -57,7 +57,7 @@ fn js_window_minimize(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_unminimize(&char, &char, &WebviewManager)
-[export:"js_window_unminimize"]
+@[export:"js_window_unminimize"]
 fn js_window_unminimize(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         $if linux {
@@ -71,7 +71,7 @@ fn js_window_unminimize(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_fullscreen(&char, &char, &WebviewManager)
-[export:"js_window_fullscreen"]
+@[export:"js_window_fullscreen"]
 fn js_window_fullscreen(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         webview.is_fullscreen = true
@@ -102,7 +102,7 @@ fn js_window_fullscreen(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_unfullscreen(&char, &char, &WebviewManager)
-[export:"js_window_unfullscreen"]
+@[export:"js_window_unfullscreen"]
 fn js_window_unfullscreen(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         webview.is_fullscreen = false
@@ -122,7 +122,7 @@ fn js_window_unfullscreen(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_is_maximized(&char, &char, &WebviewManager)
-[export:"js_window_is_maximized"]
+@[export:"js_window_is_maximized"]
 fn js_window_is_maximized(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         $if linux {
@@ -141,7 +141,7 @@ fn js_window_is_maximized(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_is_fullscreen(&char, &char, &WebviewManager)
-[export:"js_window_is_fullscreen"]
+@[export:"js_window_is_fullscreen"]
 fn js_window_is_fullscreen(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
         C.webview_return(webview.webview, seq, 0, cstr(webview.is_fullscreen.str()))
@@ -149,7 +149,7 @@ fn js_window_is_fullscreen(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_move(&char, &char, &WebviewManager)
-[export:"js_window_move"]
+@[export:"js_window_move"]
 fn js_window_move(seq &char, req &char, webview &WebviewManager) {
     unsafe {
         details:=json.decode([]string,req.vstring())or{return}
@@ -167,7 +167,7 @@ fn js_window_move(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_move_by(&char, &char, &WebviewManager)
-[export:"js_window_move_by"]
+@[export:"js_window_move_by"]
 fn js_window_move_by(seq &char, req &char, webview &WebviewManager) {
     unsafe {
         details:=json.decode([]string,req.vstring())or{return}
@@ -187,7 +187,7 @@ fn js_window_move_by(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_window_new(&char, &char, &WebviewManager)
-[export:"js_window_new"]
+@[export:"js_window_new"]
 fn js_window_new(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -201,7 +201,7 @@ fn js_window_new(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_set_decorated(&char, &char, &WebviewManager)
-[export:"js_window_set_decorated"]
+@[export:"js_window_set_decorated"]
 fn js_window_set_decorated(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -229,7 +229,7 @@ fn js_window_set_decorated(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_is_decorated(&char, &char, &WebviewManager)
-[export:"js_window_is_decorated"]
+@[export:"js_window_is_decorated"]
 fn js_window_is_decorated(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -243,7 +243,7 @@ fn js_window_is_decorated(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_close(&char, &char, &WebviewManager)
-[export:"js_window_close"]
+@[export:"js_window_close"]
 fn js_window_close(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -257,7 +257,7 @@ fn js_window_close(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_set_resizable(&char, &char, &WebviewManager)
-[export:"js_window_set_resizable"]
+@[export:"js_window_set_resizable"]
 fn js_window_set_resizable(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -270,7 +270,7 @@ fn js_window_set_resizable(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_set_always_on_top(&char, &char, &WebviewManager)
-[export:"js_window_set_always_on_top"]
+@[export:"js_window_set_always_on_top"]
 fn js_window_set_always_on_top(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -295,7 +295,7 @@ fn js_window_set_always_on_top(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_is_always_on_top(&char, &char, &WebviewManager)
-[export:"js_window_is_always_on_top"]
+@[export:"js_window_is_always_on_top"]
 fn js_window_is_always_on_top(seq &char, req &char, webview &WebviewManager){
     unsafe{
         C.webview_return(webview.webview, seq, 0, cstr(webview.is_always_on_top.str()))
@@ -303,7 +303,7 @@ fn js_window_is_always_on_top(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_set_icon(&char, &char, &WebviewManager)
-[export:"js_window_set_icon"]
+@[export:"js_window_set_icon"]
 fn js_window_set_icon(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -320,7 +320,7 @@ fn js_window_set_icon(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_focus(&char, &char, &WebviewManager)
-[export:"js_window_focus"]
+@[export:"js_window_focus"]
 fn js_window_focus(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -334,7 +334,7 @@ fn js_window_focus(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_resize(&char, &char, &WebviewManager)
-[export:"js_window_resize"]
+@[export:"js_window_resize"]
 fn js_window_resize(seq &char, req &char, webview &WebviewManager){
     unsafe{
         details:=json.decode([]string,req.vstring())or{return}
@@ -352,7 +352,7 @@ fn js_window_resize(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_resize_by(&char, &char, &WebviewManager)
-[export:"js_window_resize_by"]
+@[export:"js_window_resize_by"]
 fn js_window_resize_by(seq &char, req &char, webview &WebviewManager){
     unsafe{
         details:=json.decode([]string,req.vstring())or{return}
@@ -372,7 +372,7 @@ fn js_window_resize_by(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_get_title(&char, &char, &WebviewManager)
-[export:"js_window_get_title"]
+@[export:"js_window_get_title"]
 fn js_window_get_title(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -386,7 +386,7 @@ fn js_window_get_title(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_set_progress(&char, &char, &WebviewManager)
-[export:"js_window_set_progress"]
+@[export:"js_window_set_progress"]
 fn js_window_set_progress(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {
@@ -402,7 +402,7 @@ fn js_window_set_progress(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_window_clear_progress(&char, &char, &WebviewManager)
-[export:"js_window_clear_progress"]
+@[export:"js_window_clear_progress"]
 fn js_window_clear_progress(seq &char, req &char, webview &WebviewManager){
     unsafe{
         $if linux {

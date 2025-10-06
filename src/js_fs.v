@@ -5,7 +5,7 @@ import os
 import encoding.base64
 
 fn C.js_read_file(&char, &char, &WebviewManager)
-[export:"js_read_file"]
+@[export:"js_read_file"]
 fn js_read_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -17,7 +17,7 @@ fn js_read_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_write_file(&char, &char, &WebviewManager)
-[export:"js_write_file"]
+@[export:"js_write_file"]
 fn js_write_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -30,7 +30,7 @@ fn js_write_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_write_file_binary(&char, &char, &WebviewManager)
-[export:"js_write_file_binary"]
+@[export:"js_write_file_binary"]
 fn js_write_file_binary(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -43,7 +43,7 @@ fn js_write_file_binary(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_append_file(&char, &char, &WebviewManager)
-[export:"js_append_file"]
+@[export:"js_append_file"]
 fn js_append_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -60,7 +60,7 @@ fn js_append_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_get_stats(&char, &char, &WebviewManager)
-[export:"js_get_stats"]
+@[export:"js_get_stats"]
 fn js_get_stats(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -79,7 +79,7 @@ fn js_get_stats(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_remove_file(&char, &char, &WebviewManager)
-[export:"js_remove_file"]
+@[export:"js_remove_file"]
 fn js_remove_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -92,7 +92,7 @@ fn js_remove_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_move_file(&char, &char, &WebviewManager)
-[export:"js_move_file"]
+@[export:"js_move_file"]
 fn js_move_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -105,7 +105,7 @@ fn js_move_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_copy_file(&char, &char, &WebviewManager)
-[export:"js_copy_file"]
+@[export:"js_copy_file"]
 fn js_copy_file(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -118,7 +118,7 @@ fn js_copy_file(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_read_directory(&char, &char, &WebviewManager)
-[export:"js_read_directory"]
+@[export:"js_read_directory"]
 fn js_read_directory(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -131,7 +131,7 @@ fn js_read_directory(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_create_directory(&char, &char, &WebviewManager)
-[export:"js_create_directory"]
+@[export:"js_create_directory"]
 fn js_create_directory(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -144,7 +144,7 @@ fn js_create_directory(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_remove_directory(&char, &char, &WebviewManager)
-[export:"js_remove_directory"]
+@[export:"js_remove_directory"]
 fn js_remove_directory(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}

@@ -4,7 +4,7 @@ import json
 import os
 
 fn C.js_storage_set(&char, &char, &WebviewManager)
-[export:"js_storage_set"]
+@[export:"js_storage_set"]
 fn js_storage_set(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -14,7 +14,7 @@ fn js_storage_set(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_storage_get(&char, &char, &WebviewManager)
-[export:"js_storage_get"]
+@[export:"js_storage_get"]
 fn js_storage_get(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}

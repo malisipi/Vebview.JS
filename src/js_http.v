@@ -5,7 +5,7 @@ import net.http
 import os
 
 fn C.js_http_request(&char, &char, &WebviewManager)
-[export:"js_http_request"]
+@[export:"js_http_request"]
 fn js_http_request(seq &char, req &char, webview &WebviewManager){
     unsafe{
 		details:=json.decode([]string,req.vstring())or{return}
@@ -20,7 +20,7 @@ fn js_http_request(seq &char, req &char, webview &WebviewManager){
 }
 
 fn C.js_http_download(&char, &char, &WebviewManager)
-[export:"js_http_download"]
+@[export:"js_http_download"]
 fn js_http_download(seq &char, req &char, webview &WebviewManager){
     unsafe{
 		details:=json.decode([]string,req.vstring())or{return}

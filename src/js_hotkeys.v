@@ -2,13 +2,13 @@ module main
 
 import json
 
-[export: "hotkey_event_listener_win"]
+@[export: "hotkey_event_listener_win"]
 fn hotkey_event_listener_win(event_code int){
 	C.webview_eval(hotkeys[event_code].webview,cstr("vebview._._hotkeys._event_handler(\""+event_code.str()+"\");"))
 }
 
 fn C.hotkey_event_listener_linux(event &char, data voidptr)
-[export: "hotkey_event_listener_linux"]
+@[export: "hotkey_event_listener_linux"]
 fn hotkey_event_listener_linux(event &char, data voidptr){
 	unsafe{
 		code:=event.vstring()
@@ -24,7 +24,7 @@ fn hotkey_event_listener_linux(event &char, data voidptr){
 }
 
 fn C.js_register_hotkey(&char, &char, &WebviewManager)
-[export:"js_register_hotkey"]
+@[export:"js_register_hotkey"]
 fn js_register_hotkey(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
@@ -58,7 +58,7 @@ fn js_register_hotkey(seq &char, req &char, webview &WebviewManager) {
 }
 
 fn C.js_unregister_hotkey(&char, &char, &WebviewManager)
-[export:"js_unregister_hotkey"]
+@[export:"js_unregister_hotkey"]
 fn js_unregister_hotkey(seq &char, req &char, webview &WebviewManager) {
 	unsafe {
 		details:=json.decode([]string,req.vstring())or{return}
